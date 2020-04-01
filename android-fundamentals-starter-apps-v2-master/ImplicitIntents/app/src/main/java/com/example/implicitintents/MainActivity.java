@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         // ACTION_VIEW (to view the given data), ACTION_EDIT
         // (to edit the given data), or ACTION_DIAL (to dial a phone number).
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        //intent.addCategory("android.intent.category.VOICE");
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
