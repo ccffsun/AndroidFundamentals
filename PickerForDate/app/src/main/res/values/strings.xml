@@ -6,4 +6,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="datepicker">datePicker</string>
+    <string name="date">Date:   </string>
+    <string name="time">Time</string>
+    <string name="choose_a_time">Choose a time</string>
+    <string name="timepicker">timePicker</string>
 </resources>
