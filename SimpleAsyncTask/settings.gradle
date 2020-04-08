@@ -1,0 +1,2 @@
+rootProject.name='SimpleAsync Task'
+include ':app'
