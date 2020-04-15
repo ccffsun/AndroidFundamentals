@@ -1,6 +1,10 @@
 package com.example.whowroteit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -11,7 +15,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class MainActivity extends AppCompatActivity
+        implements LoaderManager.LoaderCallbacks<String> {
     private EditText mBookInput;
     private TextView mTitleText;
     private TextView mAuthorText;
@@ -25,13 +33,20 @@ public class MainActivity extends AppCompatActivity {
         mTitleText = (TextView)findViewById(R.id.titleText);
         mAuthorText = (TextView)findViewById(R.id.authorText);
 
+        if(getSupportLoaderManager().getLoader(0) != null) {
+            getSupportLoaderManager().initLoader(0,null,this);
+        }
 
     }
 
     public void searchBooks(View view) {
         //get the search string from the input field.
         String queryString = mBookInput.getText().toString();
-        new FetchBook(mTitleText,mAuthorText).execute(queryString);
+
+        Bundle queryBundle = new Bundle();
+        queryBundle.putString("queryString",queryString);
+        getSupportLoaderManager().restartLoader(0,queryBundle,this);
+
         mAuthorText.setText("");
         mTitleText.setText(R.string.loading);
 
@@ -63,5 +78,77 @@ public class MainActivity extends AppCompatActivity {
                 mTitleText.setText(R.string.no_network);
             }
         }
+    }
+
+    @NonNull
+    @Override
+    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
+        String queryString = "";
+        if(args != null) {
+            queryString = args.getString("queryString");
+        }
+        return new BookLoader(this,queryString);
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
+
+        try{
+            //convert the response into a json object
+            JSONObject jsonObject = new JSONObject(data);
+            //get the JSONArray of book items
+            JSONArray itemsArray = jsonObject.getJSONArray("items");
+
+            //initialize iterator and results field
+            int i=0;
+            String title = null;
+            String authors = null;
+
+
+            //look for results in the items array, exiting
+            //when both the title and author
+            //are found or when all items have been checked
+
+            while (i < itemsArray.length() && (authors == null && title == null)) {
+                //Get the current item information
+                JSONObject book = itemsArray.getJSONObject(i);
+                JSONObject volumeInfo = book.getJSONObject("volumeInfo");
+
+                //try to get the author and title from the current item,
+                //catch if either field is empty and move on
+                try{
+                    title =  volumeInfo.getString("title");
+                    authors = volumeInfo.getString("authors");
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                //move to the next item
+                i++;
+            }
+            //if both are found, display the result
+            if(title !=null && authors != null) {
+                mTitleText.setText(title);
+                mAuthorText.setText(authors);
+            }else{
+                //if none are found, update the UI to show
+                //failed results
+                mTitleText.setText(R.string.no_results);
+                mAuthorText.setText("");
+            }
+
+        }catch(Exception e) {
+            //if onPostExecute does not receive a proper JSON string,
+            //update the UI to show failed results
+            mTitleText.setText(R.string.no_results);
+            mAuthorText.setText("");
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<String> loader) {
+
     }
 }
