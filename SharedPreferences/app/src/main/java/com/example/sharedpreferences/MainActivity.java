@@ -2,6 +2,7 @@ package com.example.sharedpreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,13 +15,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences shp = getSharedPreferences("data_name", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = shp.edit();
-        editor.putInt("my_key",900);
-        editor.apply();
-        int x = shp.getInt("my_key",0);
+        MyData myData = new MyData(getApplicationContext());//here can't use this
+        myData.number = 7000;
+        myData.save();
+        int x = myData.load();
         String TAG = "myLog";
-        Log.d(TAG,"onCreate: "+x);
+        Log.d(TAG,"on create: "+x);
 
     }
 }
