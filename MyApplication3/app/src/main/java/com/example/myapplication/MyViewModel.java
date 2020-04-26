@@ -13,9 +13,9 @@ import com.example.myapplication.R;
 
 public class MyViewModel extends AndroidViewModel {
 
-    SavedStateHandle handle;
-    String key = getApplication().getResources().getString(R.string.data_key);
-    String shpName = getApplication().getResources().getString(R.string.shpName);
+    private SavedStateHandle handle;
+    private String key = getApplication().getResources().getString(R.string.data_key);
+    private String shpName = getApplication().getResources().getString(R.string.shpName);
 
     public MyViewModel(@NonNull Application application, SavedStateHandle handle) {
         super(application);
@@ -28,7 +28,7 @@ public class MyViewModel extends AndroidViewModel {
         return handle.getLiveData(key);
     }
 
-    void load(){
+    private void load(){
         SharedPreferences shp = getApplication().getSharedPreferences(shpName, Context.MODE_PRIVATE);
         int x = shp.getInt(key,0);
         handle.set(key,x);
@@ -43,6 +43,5 @@ public class MyViewModel extends AndroidViewModel {
 
     public void add(int x) {
         handle.set(key,getNumber().getValue()+x);
-        save();
     }
 }

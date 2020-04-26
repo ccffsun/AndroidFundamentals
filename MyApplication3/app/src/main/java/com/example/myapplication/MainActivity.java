@@ -22,4 +22,10 @@ public class MainActivity extends AppCompatActivity {
         binding.setData(myViewModel);
         binding.setLifecycleOwner(this);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        myViewModel.save();
+    }
 }
