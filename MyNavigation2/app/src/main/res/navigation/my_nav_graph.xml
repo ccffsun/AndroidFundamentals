@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_graph"
+    app:startDestination="@id/homeFra">
+
+    <fragment
+        android:id="@+id/homeFra"
+        android:name="com.example.mynavigation2.HomeFra"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFra_to_detailFra"
+            app:destination="@id/detailFra"
+            app:enterAnim="@anim/form_left_to_right"
+            app:exitAnim="@anim/from_left_right2">
+            <argument
+                android:name="name_key"
+                android:defaultValue="Leo" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/detailFra"
+        android:name="com.example.mynavigation2.DetailFra"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="name_key"
+            app:argType="string"
+            android:defaultValue="Ricky" />
+    </fragment>
+</navigation>
