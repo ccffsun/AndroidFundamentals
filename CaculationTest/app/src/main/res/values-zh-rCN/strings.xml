@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CaculationTest</string>
+    <string name="title_message">算数真有趣！</string>
+    <string name="title_button_message">开始答题</string>
+    <string name="high_score_message">最高分：%d</string>
+    <string name="input_indicator">你的答案：</string>
+    <string name="button_back">返回</string>
+    <string name="scor_win_message">新纪录得分：%d</string>
+    <string name="score_failed_message">你的得分：%d</string>
+    <string name="score_high">最高分：%d</string>
+    <string name="myScore">你的得分%d</string>
+    <string name="answer_correct_message">回答正确！继续</string>
+    <string name="quit_dialog_title">确定退出？</string>
+    <string name="dialog_positive_message">确定</string>
+    <string name="dialog_negative_message">取消</string>
+    <string name="image_win">挑战成功</string>
+    <string name="image_failed">挑战失败</string>
+    <string name="title_image_info">主页面图片</string>
+    <string name="fragment_title">欢迎</string>
+    <string name="fragment_question">问题</string>
+    <string name="fragment_win">挑战胜利</string>
+    <string name="fragment_lose">挑战失败</string>
+</resources>
