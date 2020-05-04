@@ -9,12 +9,10 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.SavedStateHandle;
 
-import java.util.Currency;
 import java.util.Random;
-import java.util.logging.Handler;
 
 public class MyViewModel extends AndroidViewModel {
-    SavedStateHandle handle;
+    private SavedStateHandle handle;
     private static String KEY_HIGH_SCORE = "key_high_score";
     private static String KEY_LEFT_NUMBER = "key_left_number";
     private static String KEY_RIGHT_NUMBER = "key_right_number";
@@ -34,27 +32,23 @@ public class MyViewModel extends AndroidViewModel {
             handle.set(KEY_OPERATOR,"+");
             handle.set(KEY_ANSWER,0);
             handle.set(KEY_CURRENT_SCORE,0);
-
         }
         this.handle = handle;
     }
+
     public MutableLiveData<Integer>getLeftNumber() {
         return handle.getLiveData(KEY_LEFT_NUMBER);
     }
-
     public MutableLiveData<Integer>getRightNumber() {
         return handle.getLiveData(KEY_RIGHT_NUMBER);
     }
-    public MutableLiveData<Integer>getAnswer() {
+    MutableLiveData<Integer>getAnswer() {
         return handle.getLiveData(KEY_ANSWER);
     }
     public MutableLiveData<Integer>getHighScore() {
         return handle.getLiveData(KEY_HIGH_SCORE);
     }
-    public MutableLiveData<Integer>getCurrentScore() {
-        return handle.getLiveData(KEY_CURRENT_SCORE);
-
-    }
+    public MutableLiveData<Integer>getCurrentScore() { return handle.getLiveData(KEY_CURRENT_SCORE); }
     public MutableLiveData<String>getOperator() {
         return handle.getLiveData(KEY_OPERATOR);
     }
@@ -106,6 +100,4 @@ public class MyViewModel extends AndroidViewModel {
         //问题答对了继续回答问题
         generator();
     }
-
-
 }
