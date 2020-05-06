@@ -1,5 +1,7 @@
 package com.example.roombasic;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +15,14 @@ import java.util.List;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    List<Word> allWords = new ArrayList<>();
-    boolean useCardView;
+    private List<Word> allWords = new ArrayList<>();
+    private boolean useCardView;
 
-    public MyAdapter(boolean useCardView) {
+    MyAdapter(boolean useCardView) {
         this.useCardView = useCardView;
     }
 
-    public void setAllWords(List<Word> allWords) {
+    void setAllWords(List<Word> allWords) {
         this.allWords = allWords;
     }
 
@@ -38,13 +40,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
         Word word = allWords.get(position);
-        holder.textViewNumber.setText(String.valueOf(position+1));
+        holder.textViewNumber.setText(String.valueOf(position + 1));
         holder.textViewEnglish.setText(word.getWords());
         holder.textViewChinese.setText(word.getChineseMeaning());
-    }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.vocabulary.com/dictionary/" + holder.textViewEnglish.getText());
+                Intent intent  = new Intent(Intent.ACTION_VIEW);
+                intent.setData(uri);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
 
+
+    }
     @Override
     public int getItemCount() {
         return allWords.size();
@@ -52,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
    static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textViewNumber,textViewEnglish,textViewChinese;
-        public MyViewHolder(@NonNull View itemView) {
+        MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewNumber = itemView.findViewById(R.id.textViewNumber);
             textViewEnglish = itemView.findViewById(R.id.textViewEnglish);
