@@ -13,6 +13,19 @@ public class Word {
     @ColumnInfo(name = "Chinese_meaning")
     private String chineseMeaning;
 
+    @ColumnInfo(name = "Chinese_invisible")
+    private boolean isChineseInvisible;
+
+
+    public boolean isChineseInvisible() {
+        return isChineseInvisible;
+    }
+
+    public void setChineseInvisible(boolean chineseInvisible) {
+        isChineseInvisible = chineseInvisible;
+    }
+
+
     public Word(String words, String chineseMeaning) {
         this.words = words;
         this.chineseMeaning = chineseMeaning;

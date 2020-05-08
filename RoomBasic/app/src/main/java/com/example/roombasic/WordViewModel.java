@@ -21,7 +21,7 @@ public class WordViewModel extends AndroidViewModel {
         return wordRepository.getAllWordsLive();
     }
     void insertWords(Word...words) {
-       wordRepository.insertWords(words);
+       wordRepository.InsertWords(words);
     }
     void DeleteWords(Word...words) {
         wordRepository.DeleteWords(words);

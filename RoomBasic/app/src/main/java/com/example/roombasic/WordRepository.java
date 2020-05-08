@@ -9,7 +9,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 class WordRepository {
-    private LiveData<List<Word>>allWordsLive;
+    private LiveData<List<Word>> allWordsLive;
     private WordDao wordDao;
 
     WordRepository(Context context) {
@@ -18,21 +18,24 @@ class WordRepository {
         allWordsLive = wordDao.getAllWordsLive();
     }
 
-    void insertWords(Word...words) {
+    void InsertWords(Word... words) {
         new InsertAsyncTask(wordDao).execute(words);
     }
-    void DeleteWords(Word...words) {
+
+    void DeleteWords(Word... words) {
         new DeleteAsyncTask(wordDao).execute(words);
     }
-    void UpdateWords(Word...words) {
+
+    void UpdateWords(Word... words) {
         new UpdateAsyncTask(wordDao).execute(words);
     }
+
     void DeleteAllWords() {
         new DeleteAllAsyncTask(wordDao).execute();
     }
 
-    LiveData<List<Word>>getAllWordsLive() {
-        return  allWordsLive;
+    LiveData<List<Word>> getAllWordsLive() {
+        return allWordsLive;
     }
 
 
