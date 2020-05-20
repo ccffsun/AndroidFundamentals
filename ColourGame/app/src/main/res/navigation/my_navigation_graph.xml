@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.colourgame.HomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_exampleFragment"
+            app:destination="@id/exampleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleFragment"
+        android:name="com.example.colourgame.ExampleColorFragment"
+        android:label="Example"
+        tools:layout="@layout/fragment_example">
+        <action
+            android:id="@+id/action_exampleFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goodjobFragment"
+        android:name="com.example.colourgame.GoodJobFragment"
+        android:label="Done"
+        tools:layout="@layout/fragment_goodjob" />
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.colourgame.QuestionColorFragment"
+        android:label="Question"
+        tools:layout="@layout/fragment_question">
+        <action
+            android:id="@+id/action_questionFragment_to_goodjobFragment"
+            app:destination="@id/goodjobFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ColourGame</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash">paint splash</string>
+    <string name="enter">Enter</string>
+    <string name="theme">color is fun</string>
+    <string name="paint">paint cans</string>
+    <string name="apple">apple color</string>
+    <string name="painter">paint the apple</string>
+    <string name="redbutton">redbutton</string>
+    <string name="click">click the button</string>
+    <string name="how">how to play</string>
+    <string name="furit">furit image</string>
+    <string name="blue">blue button</string>
+    <string name="green">green button</string>
+    <string name="orange">orange button</string>
+    <string name="purple">purple button</string>
+    <string name="yellow">yellow_button</string>
+    <string name="red">red_button</string>
+    <string name="good_job">good job</string>
+    <string name="good_job_gif_text">good job gif</string>
+    <string name="fruit_splash">fruit splash</string>
+    <string name="fruit_heart">fruit heart</string>
+    <string name="fruit_painting">fruit painting</string>
+    <string name="painter_theme">painter theme</string>
+    <string name="fruit_band">fruit dance</string>
+    <string name="red_apple_example">red apple</string>
+    <string name="start">START</string>
+    <string name="quit_dialog_title">Are you sure to quit?</string>
+    <string name="dialog_positive_message">OK</string>
+    <string name="dialog_negative_message">CANCEL</string>
+
+</resources>
