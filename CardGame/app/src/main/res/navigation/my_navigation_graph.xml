@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.kidsLearningMap.HomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_optionFragment"
+            app:destination="@id/optionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleColorFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.ExampleColorFragment"
+        android:label="Colors"
+        tools:layout="@layout/fragment_example_color">
+        <action
+            android:id="@+id/action_exampleColorFragment_to_questionColorFragment"
+            app:destination="@id/questionColorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goodjobFragment"
+        android:name="com.example.kidsLearningMap.GoodJobFragment"
+        android:label="Continue"
+        tools:layout="@layout/fragment_goodjob">
+        <action
+            android:id="@+id/action_goodjobFragment_to_optionFragment"
+            app:destination="@id/optionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionColorFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.QuestionColorFragment"
+        android:label="Choose The Color"
+        tools:layout="@layout/fragment_question_color">
+        <action
+            android:id="@+id/action_questionColorFragment_to_goodjobFragment"
+            app:destination="@id/goodjobFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/optionFragment"
+        android:name="com.example.kidsLearningMap.OptionFragment"
+        android:label="Choose Your Challenge"
+        tools:layout="@layout/fragment_option">
+        <action
+            android:id="@+id/action_optionFragment_to_exampleShapeFragment"
+            app:destination="@id/exampleShapeFragment" />
+        <action
+            android:id="@+id/action_optionFragment_to_exampleAnimalFragment"
+            app:destination="@id/exampleAnimalFragment" />
+        <action
+            android:id="@+id/action_optionFragment_to_exampleAlphabetFragment"
+            app:destination="@id/exampleAlphabetFragment" />
+        <action
+            android:id="@+id/action_optionFragment_to_exampleAlphabetFragment2"
+            app:destination="@id/exampleAlphabetFragment" />
+        <action
+            android:id="@+id/action_optionFragment_to_exampleNumberFragment"
+            app:destination="@id/exampleNumberFragment" />
+        <action
+            android:id="@+id/action_optionFragment_to_exampleAlphabetFragment3"
+            app:destination="@id/exampleAlphabetFragment" />
+        <action
+            android:id="@+id/action_optionFragment_to_exampleColorFragment"
+            app:destination="@id/exampleColorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionAlphabetFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.QuestionAlphabetFragment"
+        android:label="Choose The First Letter"
+        tools:layout="@layout/fragment_question_alphabet">
+        <action
+            android:id="@+id/action_questionAlphabetFragment_to_goodjobFragment"
+            app:destination="@id/goodjobFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionNumberFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.QuestionNumberFragment"
+        android:label="Choose The Number"
+        tools:layout="@layout/fragment_question_number">
+        <action
+            android:id="@+id/action_questionNumberFragment_to_goodjobFragment"
+            app:destination="@id/goodjobFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionAnimalFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.QuestionAnimalFragment"
+        android:label="Choose The Animal"
+        tools:layout="@layout/fragment_question_animal">
+        <action
+            android:id="@+id/action_questionAnimalFragment_to_goodjobFragment"
+            app:destination="@id/goodjobFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionShapeFragment2"
+        android:name="com.example.kidsLearningMap.gameFragment.QuestionShapeFragment"
+        android:label="Choose The Shape"
+        tools:layout="@layout/fragment_question_shape">
+        <action
+            android:id="@+id/action_questionShapeFragment2_to_goodjobFragment"
+            app:destination="@id/goodjobFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleAlphabetFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.ExampleAlphabetFragment"
+        android:label="Alphabet"
+        tools:layout="@layout/fragment_example_alphabet">
+        <action
+            android:id="@+id/action_exampleAlphabetFragment_to_questionAlphabetFragment"
+            app:destination="@id/questionAlphabetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleAnimalFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.ExampleAnimalFragment"
+        android:label="Animals"
+        tools:layout="@layout/fragment_example_animal">
+        <action
+            android:id="@+id/action_exampleAnimalFragment_to_questionAnimalFragment"
+            app:destination="@id/questionAnimalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleNumberFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.ExampleNumberFragment"
+        android:label="Numbers"
+        tools:layout="@layout/fragment_example_number">
+        <action
+            android:id="@+id/action_exampleNumberFragment_to_questionNumberFragment"
+            app:destination="@id/questionNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleShapeFragment"
+        android:name="com.example.kidsLearningMap.gameFragment.ExampleShapeFragment"
+        android:label="Shapes"
+        tools:layout="@layout/fragment_example_shape">
+        <action
+            android:id="@+id/action_exampleShapeFragment_to_questionShapeFragment2"
+            app:destination="@id/questionShapeFragment2" />
+    </fragment>
+</navigation>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OptionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4FF81">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.59" />
+
+        <Button
+            android:id="@+id/button_color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_color"
+            app:layout_constraintBottom_toTopOf="@+id/button_alph"
+            app:layout_constraintEnd_toEndOf="@+id/button_alph"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/button_alph"
+            app:layout_constraintTop_toBottomOf="@+id/button_shape" />
+
+        <Button
+            android:id="@+id/button_alph"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_alphabet"
+            app:layout_constraintBottom_toTopOf="@+id/button_number"
+            app:layout_constraintEnd_toEndOf="@+id/button_number"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/button_number"
+            app:layout_constraintTop_toBottomOf="@+id/button_color" />
+
+        <Button
+            android:id="@+id/button_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_number"
+            app:layout_constraintBottom_toTopOf="@+id/button_animal"
+            app:layout_constraintEnd_toEndOf="@+id/button_animal"
+            app:layout_constraintStart_toStartOf="@+id/button_animal"
+            app:layout_constraintTop_toBottomOf="@+id/button_alph" />
+
+        <Button
+            android:id="@+id/button_animal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/button_animal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toBottomOf="@+id/button_number" />
+
+        <Button
+            android:id="@+id/button_shape"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_shape"
+            app:layout_constraintBottom_toTopOf="@+id/button_color"
+            app:layout_constraintEnd_toEndOf="@+id/button_color"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/button_color"
+            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <ImageView
+            android:id="@+id/imageView_chalkboard"
+            android:layout_width="313dp"
+            android:layout_height="309dp"
+            android:contentDescription="@string/chalk_board"
+            android:src="@drawable/option_reading"
+            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.536" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
